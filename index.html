@@ -304,19 +304,24 @@
         }
 
         .parents-container {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            display: flex;
+            justify-content: space-between;
             gap: 20px;
             margin-bottom: 25px;
             align-items: center;
             width: 100%;
+            flex-wrap: nowrap;
         }
 
         .parents-side {
-            text-align: left;
+            flex: 1 1 0;
             min-width: 0;
-            white-space: normal;
-            word-break: break-word;
+            text-align: left;
+            white-space: nowrap;
+            overflow: visible !important;
+            text-overflow: clip !important;
+            font-size: 1rem;
+            line-height: 1.1;
         }
 
         .parents-side:last-child {
@@ -324,10 +329,10 @@
         }
 
         .parents-text {
-            grid-column: 1 / -1;
             margin-top: 20px;
             font-style: italic;
             text-align: center;
+            width: 100%;
         }
 
         .rsvp-form {
@@ -338,12 +343,11 @@
 
         @media (max-width: 600px) {
             .parents-container {
-                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-                gap: 10px;
+                gap: 8px;
             }
 
             .parents-side {
-                font-size: 0.95rem;
+                font-size: 0.82rem;
             }
         }
 
@@ -800,5 +804,6 @@
     </script>
 </body>
 </html>
+
 
 
