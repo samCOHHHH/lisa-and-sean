@@ -10,10 +10,10 @@
 
     <style>
         :root {
-            --gold: #6d4a2c;
-            --text: #3f2d1f;
+            --gold: #2d5f52;
+            --text: #2d5f52;
             --ivory: #e8d7c3;
-            --line: rgba(109,74,44,.25);
+            --line: rgba(45,95,82,.25);
         }
 
         * { box-sizing: border-box; }
@@ -37,6 +37,7 @@
             opacity: 0.08;
             pointer-events: none;
             z-index: 1;
+            filter: hue-rotate(130deg) saturate(1.1);
         }
 
         body::after {
@@ -82,7 +83,7 @@
         .intro-content {
             position: relative;
             text-align: center;
-            color: #fff;
+            color: #efdecf;
             z-index: 6005;
             padding: 0 20px;
             width: 100%;
@@ -113,7 +114,7 @@
         .intro-unit b {
             display: block;
             font-size: 1.8rem;
-            color: #b58155;
+            color: #2d5f52;
             line-height: 1;
         }
 
@@ -123,6 +124,7 @@
             font-size: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: #2d5f52;
         }
 
         .intro-btn {
@@ -160,7 +162,7 @@
             font-family: Montserrat, sans-serif;
             font-size: 0.65rem;
             letter-spacing: 1.6px;
-            color: rgba(92,74,51,0.85);
+            color: #2d5f52;
         }
 
         .is-open header {
@@ -178,6 +180,7 @@
             max-width: 60px;
             height: auto;
             display: block;
+            filter: hue-rotate(130deg) saturate(1.1);
         }
 
         #main {
@@ -526,7 +529,8 @@
             <div class="title-sec reveal-text" style="--delay: 0s;">LA MAIRIE</div>
             <div class="names reveal-text" style="--delay: 0.1s;">Lisa & Sean</div>
             <p class="reveal-text" style="--delay: 0.2s;">se diront "Oui"</p>
-            <div class="date-row reveal-text" style="--delay: 0.3s;">À la Mairie de Saint-Cloud</div>
+            <div class="date-row reveal-text" style="--delay: 0.3s;">Mercredi 16 septembre 2026 — 14h30</div>
+            <div class="date-row reveal-text" style="--delay: 0.35s;">À la Mairie de Saint-Cloud</div>
             <p class="reveal-text" style="--delay: 0.4s;">13 place Charles de Gaulle, 92210 Saint-Cloud</p>
             <a href="https://waze.com/ul?q=Mairie%20de%20Saint-Cloud" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.5s;">Itinéraire Waze</a>
         </section>
@@ -783,6 +787,7 @@
     </script>
 </body>
 </html>
+
 
 
 
