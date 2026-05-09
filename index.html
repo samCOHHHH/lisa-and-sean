@@ -454,6 +454,41 @@
         #msgRetour { color: var(--gold); }
         #msgErreur { color: #9b2c2c; }
 
+        .card-separator {
+            text-align: center;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .card-separator::before,
+        .card-separator::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(150px, 80vw, 450px);
+            height: 1px;
+            background: #2d5f52;
+        }
+
+        .card-separator::before {
+            top: 20px;
+        }
+
+        .card-separator::after {
+            bottom: 20px;
+        }
+
+        .separator-logo {
+            max-width: 80px;
+            height: auto;
+            opacity: 0.55;
+            filter: hue-rotate(130deg) saturate(1.1);
+        }
+
         @media (max-width: 600px) {
             #cover-overlay {
                 padding-bottom: 34px;
@@ -535,6 +570,10 @@
             <a href="https://waze.com/ul?q=Mairie%20de%20Saint-Cloud" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.5s;">Itinéraire Waze</a>
         </section>
 
+        <div class="card-separator reveal-item" style="--reveal-delay: 0.05s;">
+            <img src="logo.png" alt="" class="separator-logo">
+        </div>
+
         <section class="card reveal-item" style="--reveal-delay: 0.1s;">
             <div class="title-sec reveal-text" style="--delay: 0s;">BEACH PARTY</div>
             <p class="reveal-text" style="--delay: 0.1s;"><strong>L’Avant-Soirée</strong></p>
@@ -542,6 +581,10 @@
             <p class="reveal-text" style="--delay: 0.3s;"><strong>Loullie TLV</strong><br>Tel Aviv, Israël</p>
             <a href="https://waze.com/ul?q=Loullie%20Tel%20Aviv" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.4s;">Itinéraire Waze</a>
         </section>
+
+        <div class="card-separator reveal-item" style="--reveal-delay: 0.15s;">
+            <img src="logo.png" alt="" class="separator-logo">
+        </div>
 
         <section class="card reveal-item" style="--reveal-delay: 0.2s;">
             <div class="title-sec reveal-text" style="--delay: 0s;">HOUPPA & SOIRÉE</div>
@@ -563,6 +606,10 @@
             <p class="reveal-text" style="--delay: 0.1s;">Une pensée pour nos chers grands-parents tant aimés :</p>
             <p class="reveal-text" style="--delay: 0.2s;"><strong>Papi Adrien ז״ל • Mami Paulette ז״ל</strong></p>
         </section>
+
+        <div class="card-separator reveal-item" style="--reveal-delay: 0.35s;">
+            <img src="logo.png" alt="" class="separator-logo">
+        </div>
 
         <section class="card reveal-item" style="--reveal-delay: 0.4s;">
             <div class="title-sec reveal-text" style="--delay: 0s;">DITES-NOUS OUI !</div>
@@ -787,6 +834,7 @@
     </script>
 </body>
 </html>
+
 
 
 
