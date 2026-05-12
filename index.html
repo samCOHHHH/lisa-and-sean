@@ -42,7 +42,13 @@
 
         body::after {
             content: "";
-            display: none;
+            position: fixed;
+            inset: 0;
+            background: url('fond.jpg') center / cover no-repeat;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: multiply;
         }
 
         body > * {
@@ -834,10 +840,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
