@@ -10,10 +10,9 @@
 
     <style>
         :root {
-            --gold: #2d5f52;
-            --text: #2d5f52;
-            --ivory: #e8d7c3;
-            --line: rgba(45,95,82,.25);
+            --gold: #C9A84C;
+            --ivory: #EDD9B0;
+            --line: rgba(237,217,176,0.35);
         }
 
         * { box-sizing: border-box; }
@@ -22,38 +21,20 @@
             margin: 0;
             padding: 0;
             min-height: 100%;
-            color: var(--text);
+            color: var(--ivory);
             font-family: "Cormorant Garamond", serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            background: #efdecf;
+            background:
+                linear-gradient(rgba(30,15,5,0.22), rgba(30,15,5,0.22)),
+                url('fond.jpg') center / cover fixed no-repeat;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: url('logo.png') center 45% / 260px no-repeat;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 1;
-            filter: hue-rotate(130deg) saturate(1.1);
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: url('fond.jpg') center / cover no-repeat;
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 1;
-            mix-blend-mode: multiply;
-        }
+        body::before, body::after { display: none; }
 
         body > * {
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
         #cover-overlay {
@@ -120,7 +101,7 @@
         .intro-unit b {
             display: block;
             font-size: 1.8rem;
-            color: #2d5f52;
+            color: #C9A84C;
             line-height: 1;
         }
 
@@ -130,7 +111,7 @@
             font-size: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #2d5f52;
+            color: #FFF8E7;
         }
 
         .intro-btn {
@@ -153,62 +134,37 @@
         }
 
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(235,214,186,0.95);
-            z-index: 4000;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 3px;
-            padding: 4px 0 3px;
-            border-bottom: 1px solid rgba(109,74,44,0.18);
-            font-family: Montserrat, sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 1.6px;
-            color: #2d5f52;
-        }
-
-        .is-open header {
-            display: flex;
-        }
-
-        #navTimer {
-            line-height: 1.1;
-            font-size: 0.75rem;
-            letter-spacing: 1.3px;
-            text-align: center;
-        }
-
-        #logo {
-            max-width: 60px;
-            height: auto;
-            display: block;
-            filter: hue-rotate(130deg) saturate(1.1);
+            display: none !important;
         }
 
         #main {
             display: none;
-            padding: 150px 20px 50px;
+            padding: 40px 20px 80px;
         }
 
         .is-open #main {
             display: block;
         }
 
+        #top-timer {
+            text-align: center;
+            font-family: Montserrat, sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--ivory);
+            opacity: 0.75;
+            margin-bottom: 30px;
+        }
+
         .card {
-            max-width: 650px;
-            margin: 0 auto 60px;
-            padding: 0;
+            max-width: 620px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
             text-align: center;
             background: transparent;
             border: none;
             box-shadow: none;
-            backdrop-filter: none;
             position: relative;
-            overflow: visible;
         }
 
         .card::before,
@@ -216,59 +172,86 @@
             display: none;
         }
 
-        .card > * {
-            position: relative;
-            z-index: 2;
-        }
-
         .title-sec {
             text-transform: uppercase;
             letter-spacing: 9px;
-            color: var(--gold);
-            font-size: 1.4rem;
+            color: var(--ivory);
+            font-size: 1.35rem;
             display: inline-block;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+            padding: 18px 0;
+            margin-bottom: 24px;
             position: relative;
         }
 
         .title-sec::before {
             content: "";
             position: absolute;
-            inset: auto 0 0;
-            left: 50%;
+            top: 0; left: 50%;
             transform: translateX(-50%);
-            width: 110px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, rgba(143,106,63,0.22) 20%, rgba(143,106,63,0.75) 50%, rgba(143,106,63,0.22) 80%, transparent 100%);
+            width: 200px; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(245,237,214,0.6), transparent);
         }
 
         .title-sec::after {
             content: "";
-            display: none;
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 200px; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(245,237,214,0.6), transparent);
+            display: block;
         }
 
         .names {
-            font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
             font-weight: 300;
-            margin: 10px 0;
-            letter-spacing: 0.05em;
+            margin: 14px 0;
+            letter-spacing: 0.04em;
+            color: var(--ivory);
         }
 
         .hebrew {
             font-family: serif;
-            font-size: 1.8rem;
-            margin: 15px 0;
-            color: var(--gold);
+            font-size: 1.9rem;
+            margin: 16px 0;
+            color: var(--ivory);
+        }
+
+        .hebrew-note {
+            font-family: Montserrat, sans-serif;
+            font-size: 0.85rem;
+            margin: 14px auto 0;
+            color: rgba(245,237,214,0.80);
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        .hebrew-arc {
+            width: min(100%, 580px);
+            height: 160px;
+            margin: 0 auto 10px !important;
+            overflow: visible;
+        }
+
+        .hebrew-arc text {
+            fill: var(--ivory);
+            font-weight: 300;
+            font-size: 26px;
+        }
+
+        .hebrew-arc textPath {
+            direction: rtl;
+            unicode-bidi: plaintext;
         }
 
         .date-row {
-            border-top: 1px solid rgba(109,74,44,0.16);
-            border-bottom: 1px solid rgba(109,74,44,0.16);
-            padding: 15px 0;
-            margin: 25px 0;
+            border-top: 1px solid rgba(245,237,214,0.25);
+            border-bottom: 1px solid rgba(245,237,214,0.25);
+            padding: 14px 0;
+            margin: 22px 0;
             letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--ivory);
         }
 
         .waze-btn {
@@ -276,45 +259,42 @@
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            padding: 10px 22px;
-            border: 1px solid var(--gold);
-            color: var(--gold);
+            padding: 10px 28px;
+            border: 1px solid rgba(245,237,214,0.55);
+            color: var(--ivory);
             border-radius: 30px;
             text-decoration: none;
             font-family: Montserrat, sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.3s;
         }
 
         .waze-btn:hover {
-            background: var(--gold);
-            color: #fff;
+            background: rgba(245,237,214,0.15);
         }
 
         .parents-container {
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 0;
+            justify-content: center;
             align-items: center;
+            gap: 0;
+            margin: 18px 0 6px;
             width: 100%;
-            flex-wrap: wrap;
         }
 
         .parents-side {
-            flex: 1 1 220px;
-            min-width: 0;
-            text-align: left;
-            white-space: normal;
-            font-size: 1rem;
-            line-height: 1.3;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: var(--ivory);
+            opacity: 0.88;
+            flex: 1;
         }
 
-        .parents-side:last-child {
-            text-align: right;
-        }
+        .parents-side { white-space: nowrap; font-size: 0.82rem; }
+        .parents-side:first-child { text-align: right; padding-right: 16px; border-right: 1px solid rgba(255,248,240,0.35); }
+        .parents-side:last-child  { text-align: left;  padding-left: 16px; }
 
         .parents-text {
             margin-top: 20px;
@@ -344,6 +324,7 @@
             font-size: 1.3rem;
             margin-top: 20px;
             margin-bottom: 5px;
+            color: var(--ivory);
         }
 
         .rsvp-form input[type="text"],
@@ -351,19 +332,19 @@
         .rsvp-form input[type="number"] {
             width: 100%;
             padding: 12px;
-            border: 1.5px solid var(--text);
+            border: 1px solid rgba(245,237,214,0.4);
             font-family: "Cormorant Garamond", serif;
             font-size: 1.1rem;
-            background: transparent;
+            background: rgba(0,0,0,0.20);
             margin-bottom: 10px;
-            color: var(--text);
+            color: var(--ivory);
         }
 
         .event-box {
             margin-top: 25px;
-            border: 1px solid var(--line);
+            border: 1px solid rgba(245,237,214,0.25);
             padding: 20px;
-            background: rgba(250,250,250,0.8);
+            background: rgba(0,0,0,0.15);
         }
 
         .event-name {
@@ -371,7 +352,7 @@
             margin-bottom: 10px;
             display: block;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--ivory);
         }
 
         .radio-group {
@@ -387,12 +368,13 @@
             gap: 8px;
             cursor: pointer;
             font-size: 1.1rem;
+            color: var(--ivory);
         }
 
         .rsvp-btn {
-            background: var(--gold);
-            color: white;
-            border: none;
+            background: rgba(245,237,214,0.15);
+            border: 1px solid rgba(245,237,214,0.55);
+            color: var(--ivory);
             padding: 16px;
             font-family: Montserrat, sans-serif;
             text-transform: uppercase;
@@ -457,12 +439,12 @@
             text-align: center;
         }
 
-        #msgRetour { color: var(--gold); }
-        #msgErreur { color: #9b2c2c; }
+        #msgRetour { color: var(--ivory); }
+        #msgErreur { color: #f87171; }
 
         .card-separator {
             text-align: center;
-            padding: 50px 20px;
+            padding: 6px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -475,24 +457,19 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: clamp(150px, 80vw, 450px);
+            width: clamp(150px, 70vw, 400px);
             height: 1px;
-            background: #2d5f52;
+            background: linear-gradient(90deg, transparent, rgba(245,237,214,0.5), transparent);
         }
 
-        .card-separator::before {
-            top: 20px;
-        }
-
-        .card-separator::after {
-            bottom: 20px;
-        }
+        .card-separator::before { top: 6px; }
+        .card-separator::after  { bottom: 6px; }
 
         .separator-logo {
-            max-width: 80px;
+            max-width: 70px;
             height: auto;
-            opacity: 0.55;
-            filter: hue-rotate(130deg) saturate(1.1);
+            opacity: 0.70;
+            filter: brightness(10);
         }
 
         @media (max-width: 600px) {
@@ -545,6 +522,7 @@
     <div id="cover-overlay">
         <div class="cover-bg"></div>
         <div class="intro-content">
+            <img src="logo.png" alt="Logo" style="width:90px; height:auto; margin-bottom:18px; filter:sepia(1) saturate(2) hue-rotate(5deg); opacity:0.92; display:block; margin-left:auto; margin-right:auto;">
             <h1 class="names-cover">Lisa & Sean</h1>
             <p class="intro-subtitle">19 OCTOBRE 2026 • ISRAËL</p>
 
@@ -560,19 +538,18 @@
         </div>
     </div>
 
-    <header id="header">
-        <div id="navTimer">00J 00H 00M 00S</div>
-        <img src="logo.png" alt="Logo" id="logo">
-    </header>
-
     <main id="main">
+        <div id="top-timer" class="reveal-item" style="--reveal-delay:0s;"></div>
+
         <section class="card reveal-item" style="--reveal-delay: 0s;">
             <div class="title-sec reveal-text" style="--delay: 0s;">LA MAIRIE</div>
+            <p class="hebrew-note reveal-text" style="--delay: 0.05s;">Avant de s'envoler vers Israël, ils poseront leur premier « oui » sur le sol français, entourés de leurs plus proches.</p>
             <div class="names reveal-text" style="--delay: 0.1s;">Lisa & Sean</div>
-            <p class="reveal-text" style="--delay: 0.2s;">se diront "Oui"</p>
+            <p class="reveal-text" style="--delay: 0.2s;">se diront <em>"Oui"</em></p>
             <div class="date-row reveal-text" style="--delay: 0.3s;">Mercredi 16 septembre 2026 — 14h30</div>
-            <div class="date-row reveal-text" style="--delay: 0.35s;">À la Mairie de Saint-Cloud</div>
+            <div class="date-row reveal-text" style="--delay: 0.35s;">Mairie de Saint-Cloud</div>
             <p class="reveal-text" style="--delay: 0.4s;">13 place Charles de Gaulle, 92210 Saint-Cloud</p>
+            <p class="hebrew-note reveal-text" style="--delay: 0.45s; margin-top:14px;">Tenue de ville</p>
             <a href="https://waze.com/ul?q=Mairie%20de%20Saint-Cloud" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.5s;">Itinéraire Waze</a>
         </section>
 
@@ -582,9 +559,11 @@
 
         <section class="card reveal-item" style="--reveal-delay: 0.1s;">
             <div class="title-sec reveal-text" style="--delay: 0s;">BEACH PARTY</div>
-            <p class="reveal-text" style="--delay: 0.1s;"><strong>L’Avant-Soirée</strong></p>
+            <p class="reveal-text" style="--delay: 0.05s;"><em>L’Avant-Soirée</em></p>
+            <p class="hebrew-note reveal-text" style="--delay: 0.1s;">La veille du grand jour, retrouvons-nous les pieds dans le sable, au son des vagues de la Méditerranée. Une soirée détendue et festive pour célébrer ensemble avant la Houppa.</p>
             <div class="date-row reveal-text" style="--delay: 0.2s;">Dimanche 18 octobre 2026 — 19h00</div>
             <p class="reveal-text" style="--delay: 0.3s;"><strong>Loullie TLV</strong><br>Tel Aviv, Israël</p>
+            <p class="hebrew-note reveal-text" style="--delay: 0.35s; margin-top:14px;">Tenue décontractée — chic balnéaire</p>
             <a href="https://waze.com/ul?q=Loullie%20Tel%20Aviv" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.4s;">Itinéraire Waze</a>
         </section>
 
@@ -593,24 +572,54 @@
         </div>
 
         <section class="card reveal-item" style="--reveal-delay: 0.2s;">
-            <div class="title-sec reveal-text" style="--delay: 0s;">HOUPPA & SOIRÉE</div>
-            <div class="parents-container reveal-text" style="--delay: 0.1s;">
+            <div class="houppa-header reveal-text" style="--delay: 0s;">
+                <svg viewBox="0 0 700 290" style="width:100%;max-width:620px;display:block;margin:0 auto;">
+                    <defs>
+                        <!--
+                          Arc montante (rainbow) : M 35,220 → 665,220, rayon 390
+                          Centre calculé : (350, 428), pic à y ≈ 38
+                          sweep=0 (contre-horaire) → l'arc part du bas-gauche,
+                          monte vers le haut au centre, redescend bas-droite.
+                          Le texte suit ce chemin de gauche à droite, formant une arche.
+                        -->
+                        <path id="arcPath" d="M 35,220 A 390,390 0 0,1 665,220" fill="none"/>
+                    </defs>
+                    <!-- arc Kol Sasson -->
+                    <text font-size="30" font-family="serif" fill="#EDD9B0" opacity="0.88" letter-spacing="3">
+                        <textPath href="#arcPath" startOffset="50%" text-anchor="middle">
+                            קול ששון וקול שמחה • קול חתן וקול כלה
+                        </textPath>
+                    </text>
+                    <!-- lignes + point -->
+                    <line x1="70"  y1="233" x2="295" y2="233" stroke="#EDD9B0" stroke-opacity="0.38" stroke-width="0.8"/>
+                    <circle cx="350" cy="233" r="2.5" fill="#EDD9B0" fill-opacity="0.5"/>
+                    <line x1="405" y1="233" x2="630" y2="233" stroke="#EDD9B0" stroke-opacity="0.38" stroke-width="0.8"/>
+                    <!-- titre HOUPPA & SOIRÉE -->
+                    <text x="350" y="258" font-size="26" font-family="Montserrat,sans-serif" fill="#EDD9B0"
+                          text-anchor="middle" letter-spacing="9" font-weight="300">HOUPPA &amp; SOIRÉE</text>
+                    <!-- ligne sous le titre -->
+                    <line x1="70" y1="270" x2="630" y2="270" stroke="#EDD9B0" stroke-opacity="0.38" stroke-width="0.8"/>
+                </svg>
+            </div>
+            <p class="hebrew-note reveal-text" style="--delay: 0.15s;">Sous la fraîcheur des oliviers, nous danserons jusqu’au bout de la nuit.</p>
+            <div class="parents-container reveal-text" style="--delay: 0.2s;">
                 <div class="parents-side">Didier & Corinne Cohen</div>
                 <div class="parents-side">David & Estelle Nathan</div>
             </div>
-            <p class="parents-text reveal-text" style="--delay: 0.15s;">ont l'immense joie de vous faire part du mariage de leurs enfants</p>
-            <div class="names reveal-text" style="--delay: 0.2s;">Lisa & Sean</div>
-            <div class="hebrew reveal-text" style="--delay: 0.3s;">חנה & שמעון</div>
-            <div class="date-row reveal-text" style="--delay: 0.4s;">Lundi 19 octobre 2026 — 17h30</div>
-            <p class="reveal-text" style="--delay: 0.5s;"><strong>Ronit Farm</strong><br>Israël</p>
-            <div class="hebrew reveal-text" style="--delay: 0.6s; font-size: 1.2rem;">קול ששון וקול שמחה • קול חתן וקול כלה</div>
-            <a href="https://waze.com/ul?q=Ronit%20Farm%20Israel" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.7s;">Itinéraire Waze</a>
+            <p class="parents-text reveal-text" style="--delay: 0.25s;">ont l’immense joie de vous faire part du mariage de leurs enfants</p>
+            <div class="names reveal-text" style="--delay: 0.3s;">Lisa & Sean</div>
+            <div class="hebrew reveal-text" style="--delay: 0.4s;">חנה & שמעון</div>
+            <p class="hebrew-note reveal-text" style="--delay: 0.5s;">Un chant de joie, d’amour et de bénédiction pour notre famille et nos amis.</p>
+            <div class="date-row reveal-text" style="--delay: 0.6s;">Lundi 19 octobre 2026 — 17h30</div>
+            <p class="reveal-text" style="--delay: 0.7s;"><strong>Ronit Farm</strong><br>Israël</p>
+            <a href="https://waze.com/ul?q=Ronit%20Farm%20Israel" target="_blank" rel="noopener" class="waze-btn reveal-text" style="--delay: 0.8s;">Itinéraire Waze</a>
         </section>
 
         <section class="card reveal-item" style="--reveal-delay: 0.3s;">
             <div class="title-sec reveal-text" style="--delay: 0s;">PENSÉE</div>
-            <p class="reveal-text" style="--delay: 0.1s;">Une pensée pour nos chers grands-parents tant aimés :</p>
-            <p class="reveal-text" style="--delay: 0.2s;"><strong>Papi Adrien ז״ל • Mami Paulette ז״ל</strong></p>
+            <p class="hebrew-note reveal-text" style="--delay: 0.1s;">En ce jour de fête et de lumière, nous avons une pensée toute particulière pour nos chers grands-parents qui nous ont quittés mais qui restent à jamais dans nos cœurs.</p>
+            <p class="reveal-text" style="--delay: 0.2s; margin-top: 20px;"><strong>Papi Adrien ז״ל &nbsp;•&nbsp; Mami Paulette ז״ל</strong></p>
+            <p class="hebrew-note reveal-text" style="--delay: 0.3s; margin-top: 18px; font-style: italic;">"Leur amour et leurs valeurs guident chacun de nos pas. Ils auraient été si fiers."</p>
         </section>
 
         <div class="card-separator reveal-item" style="--reveal-delay: 0.35s;">
@@ -726,6 +735,7 @@
             setText('tM', String(m).padStart(2, '0'));
             setText('tS', String(s).padStart(2, '0'));
             setText('navTimer', `${d}J ${h}H ${m}M ${s}S`);
+            setText('top-timer', `${d}J ${h}H ${m}M ${s}S`);
         }
 
         function setText(id, value) {
