@@ -25,12 +25,23 @@
             font-family: "Cormorant Garamond", serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            background: transparent;
+        }
+
+        /* Fond fixe compatible iOS/Safari — l'élément fixed reste immobile
+           pendant le scroll, ce que background-attachment:fixed ne fait pas sur iOS */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
             background:
                 linear-gradient(rgba(30,15,5,0.22), rgba(30,15,5,0.22)),
                 url('fond.jpg') center / cover no-repeat;
+            pointer-events: none;
         }
 
-        body::before, body::after { display: none; }
+        body::after { display: none; }
 
         body > * {
             position: relative;
