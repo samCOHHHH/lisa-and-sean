@@ -592,17 +592,18 @@
                           monte vers le haut au centre, redescend bas-droite.
                           Le texte suit ce chemin de gauche à droite, formant une arche.
                         -->
-                        <!-- Chemin RTL (droite→gauche) pour l'hébreu : les caractères
-                             s'orientent correctement sur iOS/Safari sans être en miroir -->
-                        <path id="arcPath" d="M 665,220 A 390,390 0 0,0 35,220" fill="none"/>
+                        <!-- Chemin LTR : les glyphes hébreux restent droits (non retournés).
+                             Le texte source est inversé caractère par caractère pour que
+                             la lecture de droite à gauche donne le verset correct. -->
+                        <path id="arcPath" d="M 35,220 A 390,390 0 0,1 665,220" fill="none"/>
                     </defs>
                     <!-- arc Kol Sasson — direction="ltr" + unicode-bidi pour forcer
                          le rendu gauche→droite sur iOS/Safari qui interprète l'hébreu RTL
                          et retourne les glyphes sur le chemin SVG -->
                     <text font-size="30" font-family="serif" fill="#EDD9B0" opacity="0.88"
-                          letter-spacing="3" direction="rtl">
+                          letter-spacing="3" direction="ltr" unicode-bidi="bidi-override">
                         <textPath href="#arcPath" startOffset="50%" text-anchor="middle">
-                            קול ששון וקול שמחה • קול חתן וקול כלה
+                            הלכ לוקו ןתח לוק • החמש לוקו ןושש לוק
                         </textPath>
                     </text>
                     <!-- lignes + point -->
